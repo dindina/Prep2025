@@ -83,7 +83,6 @@ public class ImplementQueueUsingStacks {
 
     public static void main(String[] args) {
         MyQueue queue = new MyQueue();
-        System.out.println(queue.peek());
         queue.push(1);
         queue.push(2);
         System.out.println(queue.peek());

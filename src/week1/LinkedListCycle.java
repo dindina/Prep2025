@@ -15,13 +15,13 @@ public class LinkedListCycle {
         ListNode node1 = new ListNode();
         ListNode node2 = new ListNode();
         ListNode node3 = new ListNode();
-        node1.value = 10;
+        node1.val = 10;
         node1.next = node2;
 
-        node2.value = 102;
+        node2.val = 102;
         node2.next = node3;
 
-        node3.value = 105;
+        node3.val = 105;
         node3.next = null;
 
         System.out.println(new LinkedListCycle().hasCycle(node1));
