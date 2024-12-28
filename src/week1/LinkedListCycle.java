@@ -21,7 +21,7 @@ public class LinkedListCycle {
         node2.val = 102;
         node2.next = node3;
 
-        node3.val = 105;
+        node3.val =  105;
         node3.next = null;
 
         System.out.println(new LinkedListCycle().hasCycle(node1));

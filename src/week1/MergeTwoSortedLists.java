@@ -62,10 +62,66 @@ public class MergeTwoSortedLists {
         if (list1 != null) {
             tail.next = list1;
         }else if (list2 != null) {
-
             tail.next = list2;
         }
         return  head.next;
+
+
+
+    }
+
+    public ListNode mergeTwoListsMySolution(ListNode list1, ListNode list2) {
+
+        ListNode head = null;
+        ListNode tail = null;
+
+        while(list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                if (head == null) {
+                    head = new ListNode();
+                    head.val = list1.val;
+                    head.next = null;
+                    tail= head;
+                    list1 = list1.next;
+                } else {
+                    ListNode newNode = new ListNode();
+                    newNode.val = list1.val;
+                    newNode.next = null;
+                    list1 = list1.next;
+                    tail.next = newNode;
+                    tail = newNode;
+
+                }
+
+            } else {
+                if (head == null) {
+                    head = new ListNode();
+                    tail= head;
+                    head.val = list2.val;
+                    head.next = null;
+                    list2 = list2.next;
+                } else {
+                    ListNode newNode = new ListNode();
+                    newNode.val = list2.val;
+                    newNode.next = null;
+                    list2 = list2.next;
+                    tail.next = newNode;
+                    tail = newNode;
+                }
+
+            }
+        }
+
+        if (list1 != null) {
+            if(tail == null)
+                return list1;
+            tail.next = list1;
+        }else if (list2 != null) {
+            if(tail == null)
+                return list2;
+            tail.next = list2;
+        }
+        return  head;
 
 
 
