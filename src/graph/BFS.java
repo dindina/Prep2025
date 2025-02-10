@@ -9,8 +9,8 @@ public class BFS {
                 {0,2},{0,3},{0,5},{2,1},{3,4},{5,7}
         };
         int vertice = 10 ;
-        List<Integer> path = bfs(vertice,edges);
-        System.out.println("bfs path " +path);
+        //List<Integer> path = bfs(vertice,edges);
+        //System.out.println("bfs path " +path);
 
         List<List<Integer>> levelOrder = levelOrderTraversal(vertice,edges);
         System.out.println("level order " + levelOrder);
@@ -35,9 +35,9 @@ public class BFS {
 
         System.out.println("graph " + graph);
 
-        Set<Integer> visited = new HashSet<>();
+        //Set<Integer> visited = new HashSet<>();
         Queue<Integer> queue = new LinkedList<>();
-        visited.add(0);
+        //visited.add(0);
         queue.offer(0);
         result.add(Arrays.asList(0));
 
