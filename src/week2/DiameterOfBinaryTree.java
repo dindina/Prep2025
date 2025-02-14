@@ -2,6 +2,9 @@ package week2;
 
 import binarytree.TreeNode;
 
+/*
+
+ */
 public class DiameterOfBinaryTree {
 
     int diameter;
@@ -26,6 +29,7 @@ public class DiameterOfBinaryTree {
         node4.val = 5;
 
         System.out.println(new DiameterOfBinaryTree().diameterOfBinaryTree(root));
+
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
@@ -33,23 +37,25 @@ public class DiameterOfBinaryTree {
         if(root == null)
             return 0;
 
-        height(root);
+        helper(root);
         return diameter;
 
     }
 
-    public int height(TreeNode root )
+    public int helper(TreeNode root )
     {
         if ( root == null)
             return 0;
 
-        int left = height(root.left );
+        int left = helper(root.left );
 
-        int right = height(root.right );
+        int right = helper(root.right );
 
         diameter = Math.max(diameter, left+right);
 
         return 1 + Math.max(left,right);
 
     }
+
+
 }

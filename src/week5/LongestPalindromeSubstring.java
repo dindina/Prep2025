@@ -58,7 +58,6 @@ public class LongestPalindromeSubstring {
             right++; //expand right;
 
         }
-        System.out.println("return " + (right-left-1));
         return right-left-1;
     }
 }

@@ -35,4 +35,25 @@ public class BalancedBinaryTree {
         return 1 + Math.max(height(node.right),height(node.left));
     }
 
+
+
+
+
+
+    public boolean isBalanced1(TreeNode node)
+    {
+        if( node == null) return true;
+        int left = height1(node.left);
+        int right = height1(node.left);
+
+        return (Math.abs(left-right) <=1 &&  isBalanced1(node.right) && isBalanced1(node.right));
+    }
+
+    private int height1(TreeNode root) {
+        if ( root == null ) return  0;
+
+        return 1 + Math.max(height(root.left), height(root.left));
+    }
+
+
 }
