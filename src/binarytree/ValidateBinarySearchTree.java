@@ -11,7 +11,8 @@ public class ValidateBinarySearchTree {
     private boolean helper(TreeNode root, long minValue, long maxValue) {
         if(root == null)
             return true;
-        if(root.val > minValue || root.val < maxValue){
+        //minvalue < val > maxvalue
+        if(root.val <= minValue || root.val >= maxValue){
             return false;
         }
         return helper(root.left,minValue,root.val) &&helper(root.right,root.val,maxValue);

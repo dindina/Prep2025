@@ -19,7 +19,7 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 public class Combinations {
 
     public static void main(String[] args) {
-        System.out.println(new Combinations().combine(100,5).size());
+        System.out.println(new Combinations().combine(3,2));
     }
     public List<List<Integer>> combine(int n, int k) {
 
@@ -28,7 +28,7 @@ public class Combinations {
         for (int i = 0; i < n; i++){
             nums[i] = i + 1;
         }
-        Utils.printArray(nums);
+        //Utils.printArray(nums);
 
         backtrack(nums,k, result, new ArrayList<>(),0);
 

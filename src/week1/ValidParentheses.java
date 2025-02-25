@@ -43,7 +43,7 @@ public class ValidParentheses {
             if (ch == '{' || ch == '[' || ch == '(') {
                 stack.push(ch);
             } else {
-                if(stack.isEmpty()) return false;
+                //if(stack.isEmpty()) return false;
                 char match = stack.peek();
 
                 if ((ch == '}' && match == '{') || (ch == ']' && match == '[') || (ch == ')' && match == '(')) {

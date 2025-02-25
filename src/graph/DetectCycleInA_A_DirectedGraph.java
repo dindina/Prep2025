@@ -2,32 +2,20 @@ package graph;
 
 import common.Utils;
 
-import javax.print.attribute.standard.PresentationDirection;
 import java.util.*;
 
-public class DetectCycle {
+public class DetectCycleInA_A_DirectedGraph {
     public static void main(String[] args) {
         int[][] edges = new int[][]{
-                {1,0},{0,1},{0,2},{1,3},{4,1},{4,5},{5,3}
+                //{1,0},{0,1},{0,2},{1,3},{4,1},{4,5},{5,3}
+                //{1,0},{0,1}
+                {0,1},{1,2},{2,3},{3,0},{0,4} //5
         };
 
-        System.out.println(detectCycle(edges,6));
+        System.out.println("detectCycle " + detectCycle(edges,5));
 
     }
 
-    static void getInDegree(List<List<Integer>> graph, int count )
-    {
-        System.out.println("in degree");
-        int[] inDegree = new int[count];
-        for(int i =0; i < count ; i++)
-        {
-            for( int v : graph.get(i))
-                inDegree[v]++;
-
-        }
-        Utils.printArray(inDegree);
-        System.out.println("after in degree");
-    }
 
 
 
@@ -46,18 +34,12 @@ public class DetectCycle {
         for(int [] edge : edges)
         {
             graph.get(edge[0]).add(edge[1]);
+            inDegree[edge[1]]++;
         }
 
-        System.out.println(graph);
-        for(int i=0 ; i <total; i++) // for each node
-        {
-            for(int v : graph.get(i)){ // get the neighbours
-                inDegree[v]++; // calculates how many edges are coming into each node
-            }
-        }
-        getInDegree(graph,total);
         System.out.println("priting indegree");
         Utils.printArray(inDegree);
+
         Queue<Integer> queue = new LinkedList<>();
         for(int i =0; i< total; i++)
         {
@@ -75,7 +57,7 @@ public class DetectCycle {
             {
                 System.out.println("checking " + n);
                 System.out.println("inDegree[n] " + inDegree[n]);
-                inDegree[n] = inDegree[n]-1;
+                inDegree[n] = inDegree[n]-- ;
                 if(inDegree[n] == 0)
                 {
                     System.out.println("ofeering " + n);

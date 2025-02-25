@@ -1,8 +1,6 @@
 package binarytree;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class SerializeTree {
 
@@ -42,6 +40,9 @@ public class SerializeTree {
         System.out.println(serString1);
         System.out.println(serString1.equals(serString));
 
+        List list =  Arrays.asList("d","f");
+        Iterator<String> iter = list.iterator();
+
 
     }
     public String serialize(TreeNode root) {
@@ -54,11 +55,14 @@ public class SerializeTree {
             ser+="null,";
         else {
             ser += root.val + ",";
+        }
             serHelper(root.left);
             serHelper(root.right);
-        }
+
     }
     public TreeNode deserialize(String str){
+
+
 
         Queue<String> nodes = new LinkedList<>();
         nodes.addAll(Arrays.asList(str.split((","))));
