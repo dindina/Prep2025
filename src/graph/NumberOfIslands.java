@@ -10,25 +10,27 @@ public class NumberOfIslands {
         colCount= grid[0].length;
 
         int count=0;
+        boolean visited[][] = new boolean[rowCount][colCount];
         for(int i=0 ;i < rowCount ; i++)
         {
             for(int j=0 ; j < colCount; j++)
             {
-                if(grid[i][j]=='1')
+                if( grid[i][j] =='1' && !visited[i][j])
                 {
                     count ++;
-                    bfs(grid,i,j);
+                    bfs(grid,i,j,visited);
                 }
             }
         }
         return count;
 
     }
-    public void bfs(char[][] grid, int i, int j){
+
+    public void bfs(char[][] grid, int i, int j, boolean [][] visited){
 
         Queue<int[]> q = new LinkedList<>();
         q.offer(new int[]{i,j});
-        grid[i][j]='0';
+        visited[i][j]=true;
         while(!q.isEmpty())
         {
             int [] curr = q.poll();
@@ -40,9 +42,9 @@ public class NumberOfIslands {
                 int newC = dir[1]+currCol;
 
                 if(newR >= rowCount || newC >=colCount
-                        || newC<0 || newR<0 || grid[newR][newC] != '1')
+                        || newC<0 || newR<0 || visited[newR][newC] || grid[newR][newC] =='0' )
                     continue;
-                grid[newR][newC] = '0';
+                visited[newR][newC] = true;
                 q.offer(new int[] {newR,newC});
 
             }

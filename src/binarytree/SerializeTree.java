@@ -61,19 +61,14 @@ public class SerializeTree {
 
     }
     public TreeNode deserialize(String str){
-
-
-
         Queue<String> nodes = new LinkedList<>();
         nodes.addAll(Arrays.asList(str.split((","))));
         return dserHelper(nodes);
-
     }
 
     public TreeNode dserHelper(Queue<String> nodes) {
 
         String val = nodes.remove();
-        System.out.println("val " + val);
         if (val.equals("null")) return null;
         else {
             TreeNode node = new TreeNode(Integer.valueOf(val));

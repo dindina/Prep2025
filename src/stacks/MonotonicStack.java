@@ -1,5 +1,7 @@
 package stacks;
 
+import common.Utils;
+
 import java.util.Deque;
 import java.util.*;
 import java.util.Stack;
@@ -17,12 +19,15 @@ public class MonotonicStack {
         System.out.println(stack1.pop());*/
         //int [] nums = new int[] {1,2,3,4,5,6,7};
         int [] nums = new int[] {1,2,-1,3 , 4,5,6};
-        stack1.increasingMonotonicStack(nums);
-        System.out.println("after");
+        Utils.printArray(nums);
+        //stack1.increasingMonotonicStack(nums);
         stack1.decreasingMonotonicStack(nums);
 
 
+
+
     }
+
 
     Deque<Integer> stack = new LinkedList<>();
 
@@ -33,7 +38,7 @@ public class MonotonicStack {
             stack.pop();
         }
         stack.push(num);
-        System.out.println(stack);
+        //System.out.println(stack);
 
     }
 
@@ -48,8 +53,9 @@ public class MonotonicStack {
                 stack.pop();
             }
             stack.push(num);
-            System.out.println(stack);
+            //System.out.println(stack);
         }
+        System.out.println(stack);
 
 
     }
@@ -63,6 +69,7 @@ public class MonotonicStack {
             stack.push(num);
             System.out.println(stack);
         }
+        System.out.println("final " + stack);
 
 
     }

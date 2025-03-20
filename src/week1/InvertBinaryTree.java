@@ -42,7 +42,7 @@ public class InvertBinaryTree {
             if(left !=null)
                 System.out.println("left "+ left.val);
             if(right !=null)
-            System.out.println("right "+ right.val);
+                System.out.println("right "+ right.val);
             System.out.println("swapping left %s , right %s ".formatted(left,right));
             TreeNode temp = left;
             node.left = right;

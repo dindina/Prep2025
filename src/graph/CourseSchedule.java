@@ -30,10 +30,10 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 public class CourseSchedule {
     public static void main(String[] args) {
         int [][] prereq = new int[][]{
-                {0,1},{1,0}
+                {1,4},{2,4},{3,1},{3,2}
         };
 
-        System.out.println(new CourseSchedule().canFinish(2,prereq));
+        System.out.println(new CourseSchedule().canFinish(5,prereq));
 
     }
 
@@ -69,6 +69,7 @@ public class CourseSchedule {
         while(!queue.isEmpty()){
 
             int curr = queue.poll();
+            System.out.println("curr" + curr);
             count ++;
             for(int neigh : graph.get(curr)){
                 indegree[neigh] = indegree[neigh]-1;

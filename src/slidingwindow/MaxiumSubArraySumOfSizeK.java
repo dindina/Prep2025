@@ -7,8 +7,8 @@ import java.util.Stack;
 public class MaxiumSubArraySumOfSizeK {
 
     public static void main(String[] args) {
-        int [] nums = new int[] { 503848840,45,6,7,6,3,36654,4303039};
-        int k = 3;
+        int [] nums = new int[] { 1, 5, 6, 8, 89, 9};
+        int k = 4;
 
         System.out.println(new MaxiumSubArraySumOfSizeK().findMax(nums,k));
         System.out.println(new MaxiumSubArraySumOfSizeK().findMax1(nums,k));

@@ -1,5 +1,7 @@
 package week4;
 
+import java.util.*;
+
 /*
 
 https://leetcode.com/problems/number-of-islands/description/
@@ -36,12 +38,9 @@ Output: 3
 public class NumberOfIslands {
 
 
-    int row =0;
-    int col = 0;
-
+    int rowCount;
+    int colCount;
     int[][] directions = {{0,1},{1,0},{0,-1},{-1,0}};
-
-
     public static void main(String[] args) {
         char [][] grid = new char[][]{
                 {'1','1','1','1','0'},
@@ -52,61 +51,52 @@ public class NumberOfIslands {
 
         System.out.println(new NumberOfIslands().numIslands(grid));
     }
+
     public int numIslands(char[][] grid) {
-        // logic iterate the grid , if the value of the cell is 1 incerement the number
-        //perform dfs for the row and column
-        int result =0;
-        row = grid.length;
-        col = grid[0].length;
-        System.out.println("row " + row);
-        System.out.println("col " + col
-        );
-        for ( int r = 0 ; r < row ; r++) {
-            for (int c = 0; c < col; c++) {
 
-                if(grid[r][c] == '1' ) {
-                    result++;
-                    dfsHelper1(grid,r,c);
-                }
+        rowCount = grid.length;
+        colCount= grid[0].length;
 
-            }
-        }
-        return result;
-
-    }
-
-    private void dfsHelper1(char[][] grid, int r, int c) {
-
-        for(int [] dir : directions)
+        int count=0;
+        boolean visited[][] = new boolean[rowCount][colCount];
+        for(int i=0 ;i < rowCount ; i++)
         {
-            int newR = dir[0]+r;
-            int newC = dir[1]+c;
-
-            if(newR < 0 || newR >= row || newC < 0 || newC >= col || grid[newR][newC] == '0'){
-                return;
+            for(int j=0 ; j < colCount; j++)
+            {
+                if( grid[i][j] =='1' && !visited[i][j])
+                {
+                    count ++;
+                    bfs(grid,i,j,visited);
+                }
             }
-            grid[newR][newC] = '0';
-            dfsHelper1(grid,newR,newC);
+        }
+        return count;
 
+    }
+
+    public void bfs(char[][] grid, int i, int j, boolean [][] visited){
+
+        Queue<int[]> q = new LinkedList<>();
+        q.offer(new int[]{i,j});
+        visited[i][j]=true;
+        while(!q.isEmpty())
+        {
+            int [] curr = q.poll();
+            int currRow = curr[0];
+            int currCol = curr[1];
+            for(int[] dir : directions)
+            {
+                int newR = dir[0]+currRow;
+                int newC = dir[1]+currCol;
+
+                if(newR >= rowCount || newC >=colCount
+                        || newC<0 || newR<0 || visited[newR][newC] || grid[newR][newC] =='0' )
+                    continue;
+                visited[newR][newC] = true;
+                q.offer(new int[] {newR,newC});
+
+            }
         }
 
-
     }
-
-    private void dfsHelper2(char[][] grid, int r, int c) {
-        // check out of bound
-        int row = grid.length;
-        int col = grid[0].length;
-        if (r < 0|| r >= row || c <0 || c >= col || grid[r][c] =='0' )
-            return;
-        grid[r][c]='0';
-
-        dfsHelper2(grid,r+1,c);
-        dfsHelper2(grid,r-1,c);
-        dfsHelper2(grid,r,c+1);
-        dfsHelper2(grid,r,c-1);
-
-
-    }
-
 }

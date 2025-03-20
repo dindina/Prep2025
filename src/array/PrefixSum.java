@@ -13,9 +13,17 @@ public class PrefixSum {
         }
         Utils.printArray(prefix);
 
-        for(int i=1 ; i < nums.length ; i++){
+        /*for(int i=1 ; i < nums.length ; i++){
             nums[i] += nums[i-1];
         }
-        Utils.printArray(nums);
+        Utils.printArray(nums);*/
+
+        int [] prefix1 = new int[nums.length+1];
+        prefix1[0] = nums[0];
+        for(int i=1 ; i < nums.length ; i++){
+            //prefix[i] += prefix[i-1]+nums[i];
+            prefix1[i] = prefix1[i-1]+nums[i];
+        }
+        Utils.printArray(prefix1);
     }
 }

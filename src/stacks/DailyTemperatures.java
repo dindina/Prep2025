@@ -28,6 +28,7 @@ public class DailyTemperatures {
         int[] nums = new int[] { 30,38,30,36,35,40,28};
         int [] result =  dailyTemperatures(nums);
         Utils.printArray(result);
+        // 1->4->1->2->1->0->0->
     }
 
     public static int[] dailyTemperatures(int[] temperatures) {
@@ -38,6 +39,8 @@ public class DailyTemperatures {
             while(!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]){
                 System.out.println("popping index " + stack.peek());
                 result[stack.peek()] = i - stack.pop();
+                //1->4->1->2->1->0->0->
+                //0->1->2->3->4->0->0->
             }
             System.out.println("pushing index " + i);
             stack.push(i);

@@ -29,8 +29,9 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 public class MaximumSubArray {
 
     public static void main(String[] args) {
-        int [] nums = new int[] {-1,-1,-2,-2 };
+        int [] nums = new int[] {10,2,-3,4,6 };
         System.out.println(new MaximumSubArray().maxSubArray(nums));
+        System.out.println(new MaximumSubArray().maxSum(nums));
     }
     public int maxSubArray(int[] nums) {
         int maxsum = nums[0] ;
@@ -45,6 +46,21 @@ public class MaximumSubArray {
         }
         return maxsum;
 
+
+    }
+
+    public int maxSum(int[] nums) {
+
+        int sum = nums[0];
+        int max = Integer.MIN_VALUE;
+        for(int i=1 ; i < nums.length; i++)
+        {
+            sum+=nums[i];
+            sum = Math.max(sum,nums[i]);
+            max = Math.max(sum,max);
+
+        }
+        return max;
 
     }
 

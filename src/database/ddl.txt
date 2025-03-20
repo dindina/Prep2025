@@ -1,0 +1,30 @@
+-- Create Customers Table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(255),
+    City VARCHAR(255)
+);
+
+-- Create Orders Table
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    ProductName VARCHAR(255),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+
+-- Insert Data into Customers Table
+INSERT INTO Customers (CustomerID, CustomerName, City) VALUES
+(1, 'Alice', 'New York'),
+(2, 'Bob', 'London'),
+(3, 'Carol', 'Paris'),
+(4, 'David', 'Tokyo');
+
+-- Insert Data into Orders Table
+INSERT INTO Orders (OrderID, CustomerID, ProductName) VALUES
+(101, 1, 'Laptop'),
+(102, 2, 'Smartphone'),
+(103, 1, 'Tablet'),
+(104, 4, 'Headphones');
+
