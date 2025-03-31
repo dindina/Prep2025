@@ -2,9 +2,9 @@ package linkedlist;
 
 import java.util.*;
 
-public class LRUCache {
+public class LRUCacheUsingLinkedHashMap {
     public static void main(String[] args) {
-        LRUCache lruCache = new LRUCache(3);
+        LRUCacheUsingLinkedHashMap lruCache = new LRUCacheUsingLinkedHashMap(3);
         lruCache.put(1,100);
         System.out.println(lruCache);
 
@@ -20,7 +20,7 @@ public class LRUCache {
 
     private LinkedHashMap<Integer, Integer> map;
     private int SIZE;
-    public LRUCache(int capacity) {
+    public LRUCacheUsingLinkedHashMap(int capacity) {
         map = new LinkedHashMap<>();
         SIZE = capacity;
     }

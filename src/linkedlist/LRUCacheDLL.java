@@ -97,13 +97,16 @@ public class LRUCacheDLL {
         next.prev = prev;
 
     }
+
+
+
     public boolean addToFront(DNode node)
     {
 
             DNode next = head.next;
-            head.next = node;
             node.prev = head;
             node.next = next;
+            head.next = node;
             next.prev = node;
             return true;
 
@@ -132,6 +135,7 @@ public class LRUCacheDLL {
         DNode del = tail.prev;
         System.out.println("deleting before tail " + del);
         remove(del);
+        //removeLast();
         map.remove(del.key);
     }
 

@@ -53,7 +53,7 @@ public class SearchInARotatedArray {
                 return mid;
             }
 
-            // {7,1,2,3,5,6} target 6
+            // {7,8,9,10,3,5,6} target 6
             // sorted left half
             if(nums[left] <= nums[mid]){
 
