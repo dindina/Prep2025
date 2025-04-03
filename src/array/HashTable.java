@@ -57,10 +57,11 @@ public class HashTable {
     public boolean remove(int key){
 
         List<Pair> bucket = map.get(hashCode(key));
-        for(int i =0 ; i <bucket.size() ; i++){
-            if(bucket.get(i).key == key)
+        //for(int i =0 ; i <bucket.size() ; i++){
+        for(Pair pair : bucket){
+            if(pair.key == key)
             {
-                bucket.remove(bucket.get(i));
+                bucket.remove(pair);
                 this.size--;
                 return true;
             }
@@ -120,6 +121,7 @@ public class HashTable {
         System.out.println(table.get(3));
         table.remove(3);
         table.remove(1);
+        table.remove(6);
         System.out.println(table.get(1));
         System.out.println(table.get(3));
 

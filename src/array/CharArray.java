@@ -5,11 +5,11 @@ import java.util.List;
 
 public class CharArray {
     public static void main(String[] args) {
-        //List<String> stringList = Arrays.asList("dinesh","#saran",",Ami","Avini#");
-        List<String> stringList = Arrays.asList("","");
-        //System.out.println(encode(stringList) );
-        //System.out.println(decode(encode(stringList)) );
-        System.out.println(lengthOfLongestSubstring("xyzxyz"));
+        List<String> stringList = Arrays.asList("dinesh","#saran",",Ami","Avini#");
+        //List<String> stringList = Arrays.asList("","");
+        System.out.println(encode(stringList) );
+        System.out.println(decode(encode(stringList)) );
+        //System.out.println(lengthOfLongestSubstring("xyzxyz"));
     }
 
     public  static String encode(List<String> strs) {
